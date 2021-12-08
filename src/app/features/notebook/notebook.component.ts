@@ -55,7 +55,6 @@ export class NotebookComponent implements OnInit, OnDestroy {
       if(this.notebookPage[pg] != null && this.notebookPage[pg].pageNumber > 1)
       {
         this.pgNumber -= 1;
-        console.log("page - " + this.pgNumber)
       }
     }
   }
@@ -65,7 +64,6 @@ export class NotebookComponent implements OnInit, OnDestroy {
       if(this.notebookPage[pg] != null && this.notebookPage[pg].pageNumber < this.notebookPage.length)
       {
         this.pgNumber += 1;
-        console.log("page - " + this.pgNumber)
       }
     }
   }
