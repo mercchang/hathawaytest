@@ -1,0 +1,39 @@
+<p-card [style]="{'margin-left': '30%', 'margin-right': '30%'}">
+    <h3 style="text-align: center;">Notebook</h3>
+    <p-divider></p-divider>
+
+    <div style="padding-bottom: 20px; height: 300px;">
+        <app-page-content *ngIf="notebookPage.length" [notebookPage] = "notebookPage" [pgNumber] = "pgNumber"></app-page-content>
+    </div>
+    
+    <div class="grid">
+        <div class="col">
+            <form (ngSubmit)="previousPage(pgNumber)">
+                <button pButton class="p-button-raised p-button-secondary" icon="pi pi-angle-left" type="button" (click)="previousPage(pgNumber)" [style]="{'float': 'right'}"></button>
+            </form>
+        </div>
+        <div class="col">
+            <form (ngSubmit)="nextPage(pgNumber)">
+                <button pButton class="p-button-raised p-button-secondary" icon="pi pi-angle-right" type="button" (click)="nextPage(pgNumber)" [style]="{'float': 'left'}"></button>
+            </form>
+        </div>
+    </div>
+    <p-divider></p-divider>
+
+    <div style="padding-top: 20px;">
+        <form (ngSubmit)="addContent()">
+            <div class="grid">
+                <div class="col">
+                    <textarea type="text" name="newContent" placeholder="Write a note..." value="newContent" [(ngModel)]="textboxContent" [rows]="5" [cols]="45" pInputTextarea></textarea>
+                </div>
+                <div class="col">
+                    <button pButton class="p-button-raised p-button-success" type="submit" label="Add Content" [style]="{'float': 'right'}"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <p-dialog header="Page Error" [(visible)]="displayError">
+        Cannot add new content. There are only 5 pages.
+    </p-dialog>
+</p-card>
